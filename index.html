@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Make an original Nounish griptape stencil. Set real millimetre dimensions, keep support tabs, and export a printable SVG or PNG preview.">
+  <meta name="theme-color" content="#f2eee5">
+  <title>GripNoggles — made to roll</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#maker">Skip to stencil maker</a>
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="GripNoggles home"><span class="mini-noggles" aria-hidden="true"><i></i><i></i></span>GRIPNOGGLES</a>
+    <div class="header-right"><span class="edition">A LITTLE TOOL FOR BIG ROLLERS</span><a class="source-link" href="https://github.com/carrerasdarren-cell/gripnoggles" target="_blank" rel="noopener">Open source <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow"><span class="orange-dot" aria-hidden="true"></span> GNARS MEETS NOUNISH MAKING</p><h1 id="page-title">Make your next <span>grip.</span></h1></div>
+      <p class="intro-copy">A little Nounish geometry for your deck.<br>Make it yours. Print at real size. Roll with it.</p>
+    </section>
+
+    <section id="maker" class="maker" aria-label="Griptape stencil maker">
+      <div class="controls-panel">
+        <div class="panel-heading"><span class="step-number">01</span><h2>Shape your stencil</h2><button id="reset" type="button" class="reset-button">Reset</button></div>
+        <form id="design-form" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="width">Stencil width <span>mm</span></label><input id="width" name="width" type="number" min="40" max="190" step="1" value="140" inputmode="decimal" aria-describedby="width-help"><small id="width-help">40–190 mm · fits an A4 sheet</small></div>
+            <div class="field"><label for="deck">Deck width <span>mm</span></label><input id="deck" name="deck" type="number" min="100" max="300" step="1" value="210" inputmode="decimal"><small>Measure your own deck</small></div>
+            <div class="field"><label for="margin">Edge clearance <span>mm</span></label><input id="margin" name="margin" type="number" min="0" max="40" step="1" value="12" inputmode="decimal"><small>Space to leave on each side</small></div>
+            <div class="field"><label for="frame">Frame thickness <span>mm</span></label><input id="frame" name="frame" type="number" min="2" max="10" step="0.5" value="5" inputmode="decimal"><small>2–10 mm · within design limits</small></div>
+            <div class="field full-width"><label for="preset">Frame style</label><select id="preset" name="preset"><option value="block">Block — the everyday classic</option><option value="step">Step — a little extra pixel</option></select></div>
+            <div class="field full-width"><label for="label">Maker label <span>on your print sheet</span></label><input id="label" name="label" type="text" value="Made to roll" maxlength="42" autocomplete="off" spellcheck="false"></div>
+          </div>
+        </form>
+        <p id="design-error" class="error-message" role="alert" hidden></p>
+        <div class="export-panel">
+          <button id="download-svg" class="button button-primary" type="button" data-export><span>Download stencil SVG</span><span aria-hidden="true">↓</span></button>
+          <div class="secondary-buttons"><button id="download-sheet" class="button button-secondary" type="button" data-export>Download A4 sheet</button><button id="download-png" class="button button-secondary" type="button" data-export>PNG preview <span aria-hidden="true">↓</span></button></div>
+          <p class="export-help">SVG keeps real millimetres. PNG is a digital preview.</p>
+          <p id="export-status" class="export-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="preview-panel">
+        <div class="preview-heading"><div><p class="eyebrow">YOUR PRINT SHEET</p><h2>Ready for the workbench.</h2></div><span class="paper-badge">A4 · 210 × 297 MM</span></div>
+        <div class="preview-stage"><div id="preview" class="paper-preview" aria-label="Generated A4 stencil print sheet"></div><div id="invalid-preview" class="invalid-preview" hidden><span aria-hidden="true">⌐◨-◨</span><p>Let’s get those measurements right.</p><p>Fix the measurements to preview and export.</p></div></div>
+        <div class="measurements" aria-label="Current stencil measurements"><div><span>Stencil</span><strong id="dimensions">—</strong></div><div><span>Usable deck width</span><strong id="usable">—</strong></div><div><span>PNG pixels</span><strong id="png-size">—</strong></div></div>
+      </div>
+    </section>
+
+    <section class="how-to" aria-label="How to use your stencil">
+      <div><span class="step-number">02</span><p><strong>Print at 100%.</strong> Turn off “fit to page.” Check the sheet’s 50 mm calibration line before using the pattern.</p></div>
+      <div><span class="step-number">03</span><p><strong>Black is the cutout.</strong> Keep the white support tabs: they connect the lens islands to the rest of the stencil.</p></div>
+      <div><span class="step-number">04</span><p><strong>Make it your own.</strong> Try the pattern on paper first. Printer accuracy and physical cutting haven’t been tested here.</p></div>
+    </section>
+  </main>
+  <footer><p>Original geometric templates, made for the <a href="https://www.gnars.com/community/bounties/sopa/0" target="_blank" rel="noopener">Gnars × Nouns coding challenge</a>. Skate customization meets Nounish creativity.</p><p>Built with Codex assistance · No account needed · Nothing uploaded</p></footer>
+  <noscript><p class="noscript">Enable JavaScript to generate and download your stencil.</p></noscript>
+</body>
+</html>
